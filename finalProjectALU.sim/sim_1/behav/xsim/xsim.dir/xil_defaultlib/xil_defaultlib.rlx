@@ -1,0 +1,10 @@
+0.7
+2020.2
+Oct 14 2022
+05:20:55
+X:/EC311/finalProjectALU/finalProjectALU.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+X:/EC311/finalProjectALU/finalProjectALU.srcs/sim_1/new/alu_tb.v,1733311214,verilog,,,,alu_tb,,,,,,,,
+X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/alu.v,1733308869,verilog,,X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/bcd.v,,ALU,,,,,,,,
+X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/bcd.v,1733309303,verilog,,X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/decoder.v,,bcd,,,,,,,,
+X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/decoder.v,1733309459,verilog,,X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/top.v,,decoder,,,,,,,,
+X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/top.v,1733310569,verilog,,X:/EC311/finalProjectALU/finalProjectALU.srcs/sim_1/new/alu_tb.v,,top,,,,,,,,

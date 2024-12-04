@@ -1,0 +1,11 @@
+Time resolution is 1 ps
+At time                    0, A =  0, B =  0, Opcode = 000, Seg1 = 0000001, Seg2 = 0000001, Seg3 = 0000001
+At time                10000, A =  5, B =  3, Opcode = 001, Seg1 = 0000001, Seg2 = 0000001, Seg3 = 0000001
+At time                20000, A =  7, B =  4, Opcode = 010, Seg1 = 0000001, Seg2 = 0000001, Seg3 = 0000001
+At time                30000, A =  3, B =  2, Opcode = 011, Seg1 = 0000001, Seg2 = 0000001, Seg3 = 0000001
+At time                40000, A =  8, B =  2, Opcode = 100, Seg1 = 0000001, Seg2 = 0000001, Seg3 = 0000001
+At time                50000, A =  9, B =  4, Opcode = 101, Seg1 = 0000001, Seg2 = 0000001, Seg3 = 0000001
+At time                60000, A =  5, B =  3, Opcode = 110, Seg1 = 0000001, Seg2 = 0000001, Seg3 = 0000001
+At time                70000, A =  5, B =  3, Opcode = 111, Seg1 = 0000001, Seg2 = 0000001, Seg3 = 0000001
+At time                80000, A =  5, B =  3, Opcode = 000, Seg1 = 0000001, Seg2 = 0000001, Seg3 = 0000001
+$finish called at time : 90 ns : File "X:/EC311/finalProjectALU/finalProjectALU.srcs/sim_1/new/alu_tb.v" Line 97
