@@ -4,7 +4,7 @@ verilog xil_defaultlib  \
 "../../../../finalProjectALU.srcs/sources_1/new/bcd.v" \
 "../../../../finalProjectALU.srcs/sources_1/new/decoder.v" \
 "../../../../finalProjectALU.srcs/sources_1/new/top.v" \
-"../../../../finalProjectALU.srcs/sim_1/new/alu_tb.v" \
+"../../../../finalProjectALU.srcs/sim_1/new/top_tb.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
