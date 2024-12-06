@@ -55,21 +55,9 @@ if {$::dispatch::connected} {
   }
 }
 
-proc create_report { reportName command } {
-  set status "."
-  append status $reportName ".fail"
-  if { [file exists $status] } {
-    eval file delete [glob $status]
-  }
-  send_msg_id runtcl-4 info "Executing : $command"
-  set retval [eval catch { $command } msg]
-  if { $retval != 0 } {
-    set fp [open $status w]
-    close $fp
-    send_msg_id runtcl-5 warning "$msg"
-  }
-}
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 5
+set_param xicom.use_bs_reader 1
 set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
@@ -88,6 +76,7 @@ OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/alu.v
   X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/bcd.v
+  X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/clk_divider.v
   X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/decoder.v
   X:/EC311/finalProjectALU/finalProjectALU.srcs/sources_1/new/top.v
 }
@@ -104,6 +93,8 @@ read_xdc X:/EC311/finalProjectALU/finalProjectALU.srcs/constrs_1/new/Nexys4DDR_M
 set_property used_in_implementation false [get_files X:/EC311/finalProjectALU/finalProjectALU.srcs/constrs_1/new/Nexys4DDR_Master.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental X:/EC311/finalProjectALU/finalProjectALU.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
@@ -120,7 +111,7 @@ set_param constraints.enableBinaryConstraints false
 write_checkpoint -force -noxdef top.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb"
+generate_parallel_reports -reports { "report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb"  } 
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

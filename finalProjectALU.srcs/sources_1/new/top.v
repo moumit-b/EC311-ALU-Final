@@ -9,9 +9,9 @@
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: Top module with ALU and 3-digit 7-segment display logic
 // 
-// Dependencies: 
+// Dependencies: ALU, bcd, decoder, clk_divider
 // 
 // Revision:
 // Revision 0.01 - File Created
@@ -26,13 +26,43 @@ module top(
     input clk,                 // Clock signal
     input rst,                 // Reset signal
 
-    output [6:0] seg1,         // 7-segment display for digit 1 (hundreds)
-    output [6:0] seg2,         // 7-segment display for digit 2 (tens)
-    output [6:0] seg3          // 7-segment display for digit 3 (ones)
+    output [6:0] cathode,      // 7-segment cathode signals
+    output reg [7:0] anode     // Anode control for 7-segment displays
 );
 
 wire [7:0] alu_result;         // 8-bit ALU result
 wire [3:0] dig1, dig2, dig3;  // BCD digits for display
+reg [3:0] decodeVal;          // Current value to decode
+wire slowClk;                 // Slow clock for display multiplexing
+reg [1:0] state;              // State for multiplexing
+
+// Initialization
+initial begin
+    anode = 8'b11111110;      // Enable the first display (least significant digit)
+    state = 2'b00;            // Start with the first display
+end
+
+// State-based multiplexing for anodes and decoding values
+always @(posedge slowClk) begin
+    case (state)
+        2'b00: begin
+            anode <= 8'b11111110;  // Enable ones digit
+            decodeVal <= dig1;
+            state <= 2'b01;
+        end
+        2'b01: begin
+            anode <= 8'b11111101;  // Enable tens digit
+            decodeVal <= dig2;
+            state <= 2'b10;
+        end
+        2'b10: begin
+            anode <= 8'b11111011;  // Enable hundreds digit
+            decodeVal <= dig3;
+            state <= 2'b00;
+        end
+        default: state <= 2'b00;
+    endcase
+end
 
 // ALU instance
 ALU alu (
@@ -52,21 +82,16 @@ bcd bcd_converter (
     .dig3(dig3)
 );
 
-// Decoders for each 7-segment digit
-decoder dig1_decoder (
-    .number(dig1),
-    .cathode(seg1)
+// Decoder instance for the 7-segment display
+decoder seg_decoder (
+    .number(decodeVal),
+    .cathode(cathode)
 );
 
-decoder dig2_decoder (
-    .number(dig2),
-    .cathode(seg2)
-);
-
-decoder dig3_decoder (
-    .number(dig3),
-    .cathode(seg3)
+// Clock divider to generate a slower clock for multiplexing
+clk_divider slowClock (
+    .clk_in(clk),
+    .divided_clk(slowClk)
 );
 
 endmodule
-

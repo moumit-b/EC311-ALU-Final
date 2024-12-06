@@ -37,6 +37,12 @@ always @(number) begin
         4'd7: cathode <= 7'b0001111; // 7
         4'd8: cathode <= 7'b0000000; // 8
         4'd9: cathode <= 7'b0000100; // 9
+        10:cathode<=7'b0001000;
+        11:cathode<=7'b1100000;
+        12:cathode<=7'b0110001;
+        13:cathode<=7'b1000010;
+        14:cathode<=7'b0110000;
+        15:cathode<=7'b0111000;
         default: cathode <= 7'b1111111; // Error or undefined value
     endcase
 end
