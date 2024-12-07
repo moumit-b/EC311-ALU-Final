@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Fri Dec  6 15:38:46 2024
+| Date         : Sat Dec  7 15:19:17 2024
 | Host         : ECE-PHO115-23 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 22
+             Violations found: 27
 +-----------+------------------+-------------------------------+------------+
 | Rule      | Severity         | Description                   | Violations |
 +-----------+------------------+-------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 10         |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 15         |
 | TIMING-18 | Warning          | Missing input or output delay | 12         |
 +-----------+------------------+-------------------------------+------------+
 
@@ -35,17 +35,17 @@ Table of Contents
 -----------------
 TIMING-17#1 Critical Warning
 Non-clocked sequential cell  
-The clock pin FSM_onehot_state_reg[0]/C is not reached by a timing clock
+The clock pin FSM_sequential_state_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#2 Critical Warning
 Non-clocked sequential cell  
-The clock pin FSM_onehot_state_reg[1]/C is not reached by a timing clock
+The clock pin FSM_sequential_state_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#3 Critical Warning
 Non-clocked sequential cell  
-The clock pin FSM_onehot_state_reg[2]/C is not reached by a timing clock
+The clock pin FSM_sequential_state_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#4 Critical Warning
@@ -65,20 +65,45 @@ Related violations: <none>
 
 TIMING-17#7 Critical Warning
 Non-clocked sequential cell  
-The clock pin decodeVal_reg[0]/C is not reached by a timing clock
+The clock pin anode_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#8 Critical Warning
 Non-clocked sequential cell  
-The clock pin decodeVal_reg[1]/C is not reached by a timing clock
+The clock pin anode_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#9 Critical Warning
 Non-clocked sequential cell  
-The clock pin decodeVal_reg[2]/C is not reached by a timing clock
+The clock pin anode_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#10 Critical Warning
+Non-clocked sequential cell  
+The clock pin anode_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#11 Critical Warning
+Non-clocked sequential cell  
+The clock pin anode_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#12 Critical Warning
+Non-clocked sequential cell  
+The clock pin decodeVal_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#13 Critical Warning
+Non-clocked sequential cell  
+The clock pin decodeVal_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#14 Critical Warning
+Non-clocked sequential cell  
+The clock pin decodeVal_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#15 Critical Warning
 Non-clocked sequential cell  
 The clock pin decodeVal_reg[3]/C is not reached by a timing clock
 Related violations: <none>

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date             : Fri Dec  6 15:38:46 2024
+| Date             : Sat Dec  7 15:19:17 2024
 | Host             : ECE-PHO115-23 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      234 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      125 |     63400 |            0.20 |
+| Slice Logic    |    <0.001 |      255 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      137 |     63400 |            0.22 |
 |   CARRY4       |    <0.001 |       12 |     15850 |            0.08 |
-|   Register     |    <0.001 |       52 |    126800 |            0.04 |
-|   F7/F8 Muxes  |    <0.001 |       16 |     63400 |            0.03 |
+|   Register     |    <0.001 |       57 |    126800 |            0.04 |
+|   F7/F8 Muxes  |    <0.001 |       20 |     63400 |            0.03 |
 |   Others       |     0.000 |        7 |       --- |             --- |
-| Signals        |    <0.001 |      181 |       --- |             --- |
-| I/O            |    <0.001 |       28 |       210 |           13.33 |
+| Signals        |    <0.001 |      194 |       --- |             --- |
+| I/O            |    <0.001 |       29 |       210 |           13.81 |
 | Static Power   |     0.084 |          |           |                 |
 | Total          |     0.086 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
@@ -95,7 +95,7 @@ Table of Contents
 | User Input Data             | Confidence | Details                                                | Action                                                                                                             |
 +-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 | Design implementation state | High       | Design is routed                                       |                                                                                                                    |
-| Clock nodes activity        | Medium     | More than 5% of clocks are missing user specification  | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
 | I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
 | Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
 | Device models               | High       | Device models are Production                           |                                                                                                                    |
